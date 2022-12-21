@@ -7,24 +7,28 @@ import java.util.Arrays;
 
 public class exceptask3 {
     public static void main(String[] args) {
-        int [] array_1={ 23, 3, 56, 4, 32, 44 };
-        int [] array_2={ 12, 1, 23, 6, 55, 25 };
-        int [] result = getDiv(array_1,array_2);
-        System.out.println(Arrays.toString(result));
-     } 
-    
-    private static int[] getDiv (int [] arr_1, int [] arr_2){
-        if (arr_1==null || arr_2==null){
+        try {
+            int[] array_1 = { 23, 3, 56, 4, 32, 44, 34 };
+            int[] array_2 = { 12, 1, 23, 6, 55, 25 };
+            int[] result = getDiv(array_1, array_2);
+            System.out.println(Arrays.toString(result));
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static int[] getDiv(int[] arr_1, int[] arr_2) {
+        if (arr_1 == null || arr_2 == null) {
             throw new RuntimeException("One of the arrays is NULL.");
-        } else if (arr_1.length!=arr_2.length){
+        } else if (arr_1.length != arr_2.length) {
             throw new RuntimeException("Operation aborted. Arrays of different lengths.");
         }
-        int [] result = new int [arr_1.length];
-        for (int i = 0; i<arr_1.length;i++){
-            if (arr_2[i]==0){
+        int[] result = new int[arr_1.length];
+        for (int i = 0; i < arr_1.length; i++) {
+            if (arr_2[i] == 0) {
                 throw new RuntimeException("Сan't divide by zero.");
             }
-            result[i]=arr_1[i]/arr_2[i];
+            result[i] = arr_1[i] / arr_2[i];
         }
         return result;
     }

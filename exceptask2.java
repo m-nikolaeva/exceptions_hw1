@@ -7,10 +7,15 @@ import java.util.Arrays;
 public class exceptask2 {
 
     public static void main(String[] args) {
-        int[] array1 = { 23, 3, 56, 4, 32, 44 };
-        int[] array2 = { 12, 1, 32, 6, 55, 25 };
-        int[] result = getSub(array1, array2);
-        System.out.println(Arrays.toString(result));
+        try {
+            int[] array1 = { 23, 3, 56, 4, 32, 44, 76 };
+            int[] array2 = { 12, 1, 32, 6, 55, 25 };
+            int[] result = getSub(array1, array2);
+            System.out.println(Arrays.toString(result));
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     private static int[] getSub(int[] arr1, int[] arr2) {
